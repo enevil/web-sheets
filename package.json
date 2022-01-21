@@ -1,0 +1,27 @@
+{
+  "name": "web_sheet_node_server",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.2",
+    "googleapis": "^92.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.1.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "cors": "^2.8.5",
+    "eslint": "^8.6.0",
+    "nodemon": "^2.0.15"
+  }
+}
