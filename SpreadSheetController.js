@@ -28,15 +28,16 @@ class SpreadSheetController {
 
   async getPerson(req, res) {
     try {
-      const person_id = req.query.person_id;
+      const personId = req.query.personId;
       const person_data = { name: "", workShifts: [] };
-      if (person_id) {
-        const person = await Person.findById(person_id);
+      if (personId) {
+        const person = await Person.findById(personId);
         for (let associationId of person.dates) {
           const association = await Association.findById(associationId);
           const date = await Datetime.findById(association.date);
           const item = {
-            workShift: association.workShift,
+            shiftTime: association.shiftTime,
+            shiftProp: association.shiftProp,
             date: date.date,
           };
           person_data.name = person.name;
@@ -46,6 +47,7 @@ class SpreadSheetController {
 
       res.send(person_data);
     } catch (e) {
+      console.log(e);
       res.status(400).json({ message: "getPerson error", e });
     }
   }
@@ -62,7 +64,7 @@ class SpreadSheetController {
           persons.persons.push({
             _id: person.id,
             name: person.name,
-            workShift: association.workShift,
+            workShift: association.shiftTime + " " + association.shiftProp,
           });
         }
       }
@@ -83,7 +85,7 @@ class SpreadSheetController {
           await insertDataCell(dataCell);
         }
         console.log("Отработал страницу - ", title);
-        break; // ONLY ONE PAGE -- REMOVE IT
+        break; // ONLY ONE PAGE
       }
       res.status(200).json({ message: "Успешно обновил одну страницу" });
     } catch (e) {
@@ -123,9 +125,11 @@ async function insertDataCell(dataCell) {
     new Association({
       person: person,
       date: date,
-      workShift: dataCell.workShift,
+      shiftTime: dataCell.shiftTime,
+      shiftProp: dataCell.shiftProp,
     });
-  association.workShift = dataCell.workShift;
+  association.shiftTime = dataCell.shiftTime;
+  association.shiftProp = dataCell.shiftProp;
   if (!date.persons.includes(association.id)) date.persons.push(association);
   if (!person.dates.includes(association.id)) person.dates.push(association);
 
@@ -160,6 +164,7 @@ async function getValidTitles() {
 
 async function structureDataByTitle(title) {
   const dateExp = new RegExp("^[0-3][0-9]\\.[0-1][0-9]$");
+  const timeExp = new RegExp("(([\\d]\\d)|\\d)-((\\d\\d)|\\d)");
   const structureData = [];
 
   await spreadSheets.getDataByTitle(title).then((data) => {
@@ -171,6 +176,7 @@ async function structureDataByTitle(title) {
       column.forEach((cell, index) => {
         if (currentDate && cell.trim())
           if (persons[index].trim()) {
+            console.log(cell.trim());
             structureData.push({
               date: new Date(
                 +`20${title.trim().split(" ")[1]}`,
@@ -178,7 +184,12 @@ async function structureDataByTitle(title) {
                 +currentDate.trim().split(".")[0]
               ).toLocaleDateString(),
               person: persons[index].trim().toLowerCase(),
-              workShift: cell.trim(),
+              shiftTime: cell.trim().match(timeExp)
+                ? cell.trim().match(timeExp)[0]
+                : null,
+              shiftProp: cell.trim().match(timeExp)
+                ? cell.trim().replace(cell.trim().match(timeExp)[0], "")
+                : cell.trim(),
             });
           }
         if (dateExp.test(cell)) currentDate = cell;

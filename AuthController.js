@@ -13,7 +13,6 @@ const generateAccessToken = (id) => {
 class AuthController {
   async registration(req, res) {
     try {
-      console.log(req.body);
       const { email, firstName, lastName, password, username } = req.body;
       const candidateEmail = await User.findOne({ email: email });
       const candidateUsername = await User.findOne({ username: username });
@@ -65,7 +64,6 @@ class AuthController {
 
   async login(req, res) {
     try {
-      console.log(req.body);
       const { email, password } = req.body;
       const user = await User.findOne({ email: email });
       if (!user) {

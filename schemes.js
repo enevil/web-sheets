@@ -17,7 +17,8 @@ const personSchema = new mongoose.Schema({
 });
 
 const associationSchema = new mongoose.Schema({
-  workShift: { type: String, required: true, trim: true },
+  shiftTime: { type: String, trim: true },
+  shiftProp: { type: String, trim: true },
   date: { type: mongoose.Schema.Types.ObjectId, ref: "Date" },
   person: { type: mongoose.Schema.Types.ObjectId, ref: "Person" },
 });
@@ -53,6 +54,9 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
     lowercase: true,
+  },
+  profileImage: {
+    type: String,
   },
 });
 
