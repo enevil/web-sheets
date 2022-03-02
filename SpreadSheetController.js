@@ -3,7 +3,8 @@ import { SpreadSheets } from "./spreadSheetModule.js";
 
 const SERVICE_ACCOUNT_FILE = "token.json";
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-const SPREADSHEET_ID = "1rifenl8dOo5QkMzT0qKmRH2N0zLARlPxLaqm95q3Nd8";
+// const SPREADSHEET_ID = "1rifenl8dOo5QkMzT0qKmRH2N0zLARlPxLaqm95q3Nd8";
+const SPREADSHEET_ID = "1UT5OQ0f34UNJjBEAQl-_L0DG7yBdpkrEEK9gFeTRmEc";
 const RANGE = "B2:I250";
 
 const spreadSheets = new SpreadSheets(
@@ -61,6 +62,7 @@ class SpreadSheetController {
         for (let associationId of findDate.persons) {
           const association = await Association.findById(associationId);
           const person = await Person.findById(association.person);
+
           persons.persons.push({
             _id: person.id,
             name: person.name,
@@ -77,18 +79,22 @@ class SpreadSheetController {
 
   async updateOnePage(req, res) {
     try {
+      const timer = Date.now();
       const titles = await getValidTitles();
       for (let title of titles) {
         console.log("Начал обработку - ", title);
         const dataPage = await structureDataByTitle(title);
+        deleteCurrentAssociatons(dataPage);
         for (let dataCell of dataPage) {
           await insertDataCell(dataCell);
         }
         console.log("Отработал страницу - ", title);
-        break; // ONLY ONE PAGE
+        break; // ONLY ONE PAGEd
       }
+      console.log(Date.now() - timer);
       res.status(200).json({ message: "Успешно обновил одну страницу" });
     } catch (e) {
+      console.log(e);
       res.status(400).json({ message: "updateOnePage error", e });
     }
   }
@@ -96,9 +102,10 @@ class SpreadSheetController {
   async loadAllData(req, res) {
     try {
       const titles = await getValidTitles();
-      for (let title of titles) {
+      for (let title of titles.slice(0, 5)) {
         console.log("Начал обработку - ", title);
         const dataPage = await structureDataByTitle(title);
+
         for (let dataCell of dataPage) {
           await insertDataCell(dataCell);
         }
@@ -111,6 +118,32 @@ class SpreadSheetController {
       res.status(400).json({ message: "loadAllData error", e });
     }
   }
+}
+
+async function deleteCurrentAssociatons(page) {
+  const sortedPage = page.sort((a, b) => a.date - b.date);
+  const datesToDelete = await Datetime.find({
+    date: {
+      $gte: new Date(sortedPage[0].date),
+      $lt: new Date(+sortedPage[sortedPage.length - 1].date + 86400000),
+    },
+  });
+  const indexesDates = datesToDelete.map((i) => i.id);
+  const associationsToDelete = await Association.find({
+    date: { $in: indexesDates },
+  });
+  associationsToDelete.forEach((i) => deleteOneAssociaton(i.id));
+}
+
+async function deleteOneAssociaton(id) {
+  const association = await Association.findById(id);
+  await Datetime.findByIdAndUpdate(association.date, {
+    $pull: { persons: association.id },
+  });
+  await Person.findByIdAndUpdate(association.person, {
+    $pull: { dates: association.id },
+  });
+  await Association.findByIdAndRemove(association.id);
 }
 
 async function insertDataCell(dataCell) {
@@ -176,17 +209,16 @@ async function structureDataByTitle(title) {
       column.forEach((cell, index) => {
         if (currentDate && cell.trim())
           if (persons[index].trim()) {
-            console.log(cell.trim());
             structureData.push({
               date: new Date(
                 +`20${title.trim().split(" ")[1]}`,
                 +currentDate.trim().split(".")[1] - 1,
                 +currentDate.trim().split(".")[0]
-              ).toLocaleDateString(),
+              ),
               person: persons[index].trim().toLowerCase(),
               shiftTime: cell.trim().match(timeExp)
                 ? cell.trim().match(timeExp)[0]
-                : null,
+                : "",
               shiftProp: cell.trim().match(timeExp)
                 ? cell.trim().replace(cell.trim().match(timeExp)[0], "")
                 : cell.trim(),

@@ -28,7 +28,9 @@ class UserController {
           fs.unlinkSync(path.join(imgFolder, file));
         }
       });
-      res.status(200).json({ message: "uploadImage success" });
+      res
+        .status(200)
+        .json({ message: "uploadImage success", code: "IMAGE_SET_SUCCESS" });
     } catch (e) {
       res.status(400).json({ message: "uploadImage undefiend error", e });
     }

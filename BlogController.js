@@ -21,7 +21,6 @@ class BlogController {
 
   async addBlogPost(req, res) {
     try {
-      console.log(req.body);
       const { title, fullTitle, body, pathImg, date } = req.body;
       const [day, month, year] = date.split(".");
 

@@ -6,6 +6,7 @@ import spreadSheetRouter from "./spreadSheetRouter.js";
 import authRouter from "./authRouter.js";
 import blogRouter from "./blogRouter.js";
 import userRouter from "./userRouter.js";
+import recipeRouter from "./RecipeRouter.js";
 
 const PORT = 5000;
 const mongoURI = "mongodb://localhost/dbanme";
@@ -27,6 +28,7 @@ app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 app.use("/user", userRouter);
+app.use("/recipe", recipeRouter);
 app.listen(PORT, () => console.log(`SERVER START WORKING ON PORT ${PORT}`));
 
 // MONGOOSE

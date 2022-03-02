@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const dateSchema = new mongoose.Schema({
-  date: { type: String, required: true, unique: true, trim: true },
+  date: { type: Date, required: true, unique: true },
   persons: [{ type: mongoose.Schema.Types.ObjectId, ref: "Person" }],
 });
 
@@ -90,6 +90,40 @@ const blogPostSchema = new mongoose.Schema({
   date: {
     type: Date,
     required: true,
+  },
+});
+
+const recipeSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true,
+  },
+  author: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  type: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  description: {
+    type: String,
+  },
+  ingredients: {
+    type: Array,
+    required: true,
+  },
+  weightOf: {
+    type: Array,
+    required: true,
+  },
+  pathImg: {
+    type: String,
+    required: true,
     trim: true,
   },
 });
@@ -100,3 +134,4 @@ export const Association = mongoose.model("Association", associationSchema);
 
 export const User = mongoose.model("User", userSchema);
 export const BlogPost = mongoose.model("BlogPost", blogPostSchema);
+export const Recipe = mongoose.model("Recipe", recipeSchema);
