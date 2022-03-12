@@ -3,8 +3,8 @@ import { SpreadSheets } from "./spreadSheetModule.js";
 
 const SERVICE_ACCOUNT_FILE = "token.json";
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
-// const SPREADSHEET_ID = "1rifenl8dOo5QkMzT0qKmRH2N0zLARlPxLaqm95q3Nd8";
-const SPREADSHEET_ID = "1UT5OQ0f34UNJjBEAQl-_L0DG7yBdpkrEEK9gFeTRmEc";
+const SPREADSHEET_ID = "1rifenl8dOo5QkMzT0qKmRH2N0zLARlPxLaqm95q3Nd8";
+// const SPREADSHEET_ID = "1UT5OQ0f34UNJjBEAQl-_L0DG7yBdpkrEEK9gFeTRmEc";
 const RANGE = "B2:I250";
 
 const spreadSheets = new SpreadSheets(

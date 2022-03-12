@@ -1,4 +1,6 @@
 import { Recipe } from "./schemes.js";
+import fs from "fs";
+import path from "path";
 
 class RecipeController {
   async getRecipes(req, res) {
@@ -29,10 +31,11 @@ class RecipeController {
       const params = res.locals.data;
       const recipe = new Recipe({
         ...params,
-        weightOf: params.weightOf.split(","),
-        ingredients: params.ingredients.split(","),
       });
-      console.log(recipe);
+
+      // RENAME IMAGE NAME TO ID
+      recipe.pathImg = renameImgToId(recipe.id, recipe.pathImg);
+
       await recipe.save();
       res
         .status(200)
@@ -41,6 +44,67 @@ class RecipeController {
       res.status(400).json({ message: "addRecipes error", error });
     }
   }
+
+  async updateRecipe(req, res) {
+    try {
+      const { id, ...newData } = res.locals.data;
+      newData.pathImg = renameImgToId(id, newData.pathImg);
+      updateImg(id, newData.pathImg);
+      await Recipe.findByIdAndUpdate(id, newData);
+      res
+        .status(200)
+        .json({ success: true, message: "Successfully update recipe" });
+    } catch (error) {
+      res.status(400).json({ message: "updateRecipe error", error });
+    }
+  }
+
+  async deleteRecipe(req, res) {
+    try {
+      const { id } = req.body;
+      deleteImg(id);
+      await Recipe.findByIdAndRemove(id);
+
+      res
+        .status(200)
+        .json({ success: true, message: "Successfully update recipe" });
+    } catch (error) {
+      res.status(400).json({ message: "updateRecipe error", error });
+    }
+  }
 }
 
 export default new RecipeController();
+
+function renameImgToId(id, fullPath) {
+  const imgFolder = path.resolve() + "/static/RecipesImages/";
+  const pathParams = fullPath.split(".");
+
+  if (pathParams[0] !== "default") {
+    const newPath = `${id}.${pathParams[1]}.${pathParams[2]}`;
+    fs.renameSync(
+      path.join(imgFolder, fullPath),
+      path.join(imgFolder, newPath)
+    );
+    return newPath;
+  }
+  return "default.png";
+}
+
+function deleteImg(id) {
+  const imgFolder = path.resolve() + "/static/RecipesImages/";
+  fs.readdirSync(imgFolder).forEach((file) => {
+    if (file.split(".")[0] === id) {
+      fs.unlinkSync(path.join(imgFolder, file));
+    }
+  });
+}
+
+function updateImg(id, fullPath) {
+  const imgFolder = path.resolve() + "/static/RecipesImages/";
+  fs.readdirSync(imgFolder).forEach((file) => {
+    if (file.split(".")[0] === id && file !== fullPath) {
+      fs.unlinkSync(path.join(imgFolder, file));
+    }
+  });
+}

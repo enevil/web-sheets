@@ -2,23 +2,19 @@ import multer from "multer";
 import path from "path";
 
 const uploadFile = (req, res, next) => {
+  const imgFolder = path.resolve() + "/static/RecipesImages/";
+
   if (!req.query.hasImg) {
     const upload = multer().none();
     // DUBLICATE BODY BUG NORMALIZATION
     upload(req, res, function () {
+      const formData = JSON.parse(req.body.formData[0]);
       res.locals.data = {
-        name: req.body.name[0],
-        author: req.body.userId[0],
-        description: req.body.description[0],
-        type: req.body.type[0],
-        weightOf: req.body.weightOf[0],
-        ingredients: req.body.ingredients[0],
-        pathImg: "default.png",
+        ...formData,
+        pathImg: formData.oldPath || "default.png",
       };
     });
   }
-
-  const imgFolder = path.resolve() + "/static/RecipesImages/";
 
   const storage = multer.diskStorage({
     destination(req, file, cb) {
@@ -26,14 +22,13 @@ const uploadFile = (req, res, next) => {
     },
     filename(req, file, cb) {
       const timestamp = Date.now();
-      const filename = `${req.body.name}.${timestamp}.${
+      const formData = JSON.parse(req.body.formData);
+      const filename = `${formData.name}.${timestamp}.${
         file.mimetype.split("/")[1]
       }`;
-
       res.locals.data = {
-        ...req.body,
+        ...formData,
         pathImg: filename,
-        author: req.body.userId,
       };
 
       cb(null, filename);

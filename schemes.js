@@ -113,14 +113,7 @@ const recipeSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  ingredients: {
-    type: Array,
-    required: true,
-  },
-  weightOf: {
-    type: Array,
-    required: true,
-  },
+  products: [{ ingredient: String, weightOf: String }],
   pathImg: {
     type: String,
     required: true,
