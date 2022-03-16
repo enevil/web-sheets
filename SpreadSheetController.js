@@ -80,7 +80,7 @@ class SpreadSheetController {
 
   async updateOnePage(req, res) {
     try {
-      console.log(SERVICE_ACCOUNT_FILE);
+      console.log(process.env.GOOGLE_CREDENTIALS);
       const timer = Date.now();
       const titles = await getValidTitles();
       for (let title of titles) {
