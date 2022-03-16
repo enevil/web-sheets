@@ -1,8 +1,7 @@
 import { Association, Datetime, Person } from "./schemes.js";
 import { SpreadSheets } from "./spreadSheetModule.js";
 
-const SERVICE_ACCOUNT_FILE =
-  process.env.GOOGLE_APPLICATION_CREDENTIALS || "token.json";
+const SERVICE_ACCOUNT_FILE = process.env.GOOGLE_CREDENTIALS || "token.json";
 const SCOPES = ["https://www.googleapis.com/auth/spreadsheets"];
 const SPREADSHEET_ID = "1rifenl8dOo5QkMzT0qKmRH2N0zLARlPxLaqm95q3Nd8";
 // const SPREADSHEET_ID = "1UT5OQ0f34UNJjBEAQl-_L0DG7yBdpkrEEK9gFeTRmEc";
@@ -80,7 +79,6 @@ class SpreadSheetController {
 
   async updateOnePage(req, res) {
     try {
-      console.log(process.env.GOOGLE_CREDENTIALS);
       const timer = Date.now();
       const titles = await getValidTitles();
       for (let title of titles) {
