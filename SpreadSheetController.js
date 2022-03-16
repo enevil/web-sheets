@@ -80,6 +80,7 @@ class SpreadSheetController {
 
   async updateOnePage(req, res) {
     try {
+      console.log(SERVICE_ACCOUNT_FILE);
       const timer = Date.now();
       const titles = await getValidTitles();
       for (let title of titles) {
