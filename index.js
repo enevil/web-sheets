@@ -49,14 +49,14 @@ mongoose.connection.on("error", function (err) {
 mongoose.connect(mongoURI);
 
 // SCHEDULE
-// const updateDb = new CronJob("*/15 * * * *", function () {
-//   request({
-//     url: "http://localhost:5000/api/update_db",
-//     method: "PUT",
-//   })
-//     .then()
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
-// updateDb.start();
+const updateDb = new CronJob("*/15 * * * *", function () {
+  request({
+    url: "http://localhost:5000/api/update_db",
+    method: "PUT",
+  })
+    .then()
+    .catch((error) => {
+      console.log(error);
+    });
+});
+updateDb.start();
