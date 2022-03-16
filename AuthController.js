@@ -117,8 +117,8 @@ class AuthController {
 
   async check(req, res) {
     try {
+      console.log(req.headers);
       const token = req.headers.cookie.split("%20")[1];
-      console.log(token, CONFIG.SECRET);
       if (!token) {
         return res.status(403).json({
           message: "Check error",
