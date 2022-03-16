@@ -1,6 +1,7 @@
 import { User } from "./schemes.js";
 import fs from "fs";
 import path from "path";
+import { hashSync } from "bcrypt";
 
 class UserController {
   async getOneUser(req, res) {
@@ -12,7 +13,7 @@ class UserController {
         data: { firstName, lastName, username, profileImage },
       });
     } catch (e) {
-      res.status(400).json({ message: "getOneUser error", e });
+      res.status(500).json({ message: "getOneUser error", e });
     }
   }
 
@@ -32,7 +33,18 @@ class UserController {
         .status(200)
         .json({ message: "uploadImage success", code: "IMAGE_SET_SUCCESS" });
     } catch (e) {
-      res.status(400).json({ message: "uploadImage undefiend error", e });
+      res.status(500).json({ message: "uploadImage undefiend error", e });
+    }
+  }
+
+  async changePassword(req, res) {
+    try {
+      const { id, password } = req.body;
+      const hashPassword = hashSync(password, 5);
+      await User.findByIdAndUpdate(id, { password: hashPassword });
+      res.status(200).json({ message: "changeUserParams success" });
+    } catch (e) {
+      res.status(500).json({ message: "changePassword undefiend error", e });
     }
   }
 }

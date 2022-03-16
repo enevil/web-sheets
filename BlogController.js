@@ -37,7 +37,6 @@ class BlogController {
         .status(200)
         .json({ message: "Successfully add post to database", success: true });
     } catch (e) {
-      console.log(e);
       res.status(400).json({ message: "addBlogPosts error", e });
     }
   }

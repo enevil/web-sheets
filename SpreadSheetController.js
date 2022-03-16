@@ -85,6 +85,7 @@ class SpreadSheetController {
         console.log("Начал обработку - ", title);
         const dataPage = await structureDataByTitle(title);
         deleteCurrentAssociatons(dataPage);
+
         for (let dataCell of dataPage) {
           await insertDataCell(dataCell);
         }
@@ -92,10 +93,11 @@ class SpreadSheetController {
         break; // ONLY ONE PAGEd
       }
       console.log(Date.now() - timer);
-      res.status(200).json({ message: "Успешно обновил одну страницу" });
+      if (res)
+        res.status(200).json({ message: "Успешно обновил одну страницу" });
     } catch (e) {
       console.log(e);
-      res.status(400).json({ message: "updateOnePage error", e });
+      if (res) res.status(400).json({ message: "updateOnePage error", e });
     }
   }
 
@@ -168,7 +170,11 @@ async function insertDataCell(dataCell) {
 
   await date.save();
   await person.save();
-  await association.save();
+  try {
+    await association.save();
+  } catch (error) {
+    console.log(error, "undefiend save error");
+  }
 }
 
 // MIDDLEWARE

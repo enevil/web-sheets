@@ -1,15 +1,19 @@
 import express from "express";
 import path from "path";
 import cors from "cors";
+import { CronJob } from "cron";
 import mongoose from "mongoose";
 import spreadSheetRouter from "./spreadSheetRouter.js";
 import authRouter from "./authRouter.js";
 import blogRouter from "./blogRouter.js";
 import userRouter from "./userRouter.js";
 import recipeRouter from "./RecipeRouter.js";
+import { request } from "gaxios";
+import process from "process";
 
-const PORT = 5000;
-const mongoURI = "mongodb://localhost/dbanme";
+const PORT = process.env.PORT || 5000;
+const mongoURI =
+  "mongodb+srv://enevil:html5656@cluster0.dlo9a.mongodb.net/sheets?retryWrites=true&w=majority";
 
 const app = express();
 
@@ -35,7 +39,6 @@ app.listen(PORT, () => console.log(`SERVER START WORKING ON PORT ${PORT}`));
 
 mongoose.connection.on("open", function () {
   console.log("Connected to mongo server.");
-  return start_up();
 });
 
 mongoose.connection.on("error", function (err) {
@@ -45,10 +48,15 @@ mongoose.connection.on("error", function (err) {
 
 mongoose.connect(mongoURI);
 
-const start_up = async () => {
-  //   await launchDataTransfer();
-};
-
-app.get("/", async (req, res) => {
-  res.send("<h1>Welcome to my server</h1>");
-});
+// SCHEDULE
+// const updateDb = new CronJob("*/15 * * * *", function () {
+//   request({
+//     url: "http://localhost:5000/api/update_db",
+//     method: "PUT",
+//   })
+//     .then()
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
+// updateDb.start();

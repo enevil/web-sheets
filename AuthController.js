@@ -103,7 +103,7 @@ class AuthController {
   }
 
   async logout(req, res) {
-    // Set token to none and expire after 5 seconds
+    // Set token to none and expire after 1 second
     res.cookie("Authorization", "none", {
       expires: new Date(Date.now() + 1000),
       httpOnly: true,
