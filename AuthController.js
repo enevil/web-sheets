@@ -49,7 +49,7 @@ class AuthController {
         maxAge: SEVEN_DAYS,
         httpOnly: true,
         secure: true,
-        sameSite: false,
+        sameSite: "strict",
       });
 
       res.status(200).json({
@@ -90,7 +90,7 @@ class AuthController {
         maxAge: SEVEN_DAYS,
         httpOnly: true,
         secure: true,
-        sameSite: false,
+        sameSite: "strict",
       });
       res.status(200).json({
         message: "Login completed",
