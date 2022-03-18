@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://vibrant-perlman-974742.netlify.app/",
+    origin: "https://web-sheets.netlify.app/",
     exposedHeaders: ["set-cookie"],
   })
 );
