@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    origin: "https://web-sheets.netlify.app/",
     exposedHeaders: ["set-cookie"],
   })
 );
