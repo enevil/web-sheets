@@ -49,7 +49,7 @@ mongoose.connection.on("error", function (err) {
 mongoose.connect(mongoURI);
 
 // SCHEDULE
-const updateDb = new CronJob("*/15 * * * *", function () {
+const updateDb = new CronJob("0 * * * *", function () {
   request({
     url: "https://websheets.herokuapp.com/update_db",
     method: "PUT",
