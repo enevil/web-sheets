@@ -1,6 +1,6 @@
 import Router from "express";
 import RecipeController from "./RecipeController.js";
-import imageMiddleware from "../middleware/recipeImg.js";
+import imageMiddleware from "../../middleware/recipeImg.js";
 
 const recipeRouter = new Router();
 
