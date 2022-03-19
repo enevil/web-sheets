@@ -1,13 +1,15 @@
-import { User } from "./schemes.js";
+import { User } from "../schemes.js";
 import bcrypt, { compareSync } from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
-import { CONFIG } from "./config.js";
+import process from "process";
 
 const SEVEN_DAYS = 3600000 * 24 * 7;
 
 const generateAccessToken = (id) => {
   const payload = { id };
-  return jsonwebtoken.sign(payload, CONFIG.SECRET, { expiresIn: SEVEN_DAYS });
+  return jsonwebtoken.sign(payload, process.env.AUTH_KEY, {
+    expiresIn: SEVEN_DAYS,
+  });
 };
 
 class AuthController {
@@ -124,7 +126,7 @@ class AuthController {
           cause: "tokenNotFound",
         });
       }
-      const decodedData = jsonwebtoken.verify(token, CONFIG.SECRET);
+      const decodedData = jsonwebtoken.verify(token, process.env.AUTH_KEY);
       if (!decodedData) {
         return res.status(403).json({
           message: "Check error",

@@ -1,4 +1,4 @@
-import { Association, Datetime, Person } from "./schemes.js";
+import { Association, Datetime, Person } from "../schemes.js";
 import { SpreadSheets } from "./spreadSheetModule.js";
 
 const SERVICE_ACCOUNT_FILE = "token.json";

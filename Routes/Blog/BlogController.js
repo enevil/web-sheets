@@ -1,4 +1,4 @@
-import { BlogPost } from "./schemes.js";
+import { BlogPost } from "../schemes.js";
 
 class BlogController {
   async getAllBlogPosts(req, res) {

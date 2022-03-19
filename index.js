@@ -3,11 +3,11 @@ import path from "path";
 import cors from "cors";
 import { CronJob } from "cron";
 import mongoose from "mongoose";
-import spreadSheetRouter from "./spreadSheetRouter.js";
-import authRouter from "./authRouter.js";
-import blogRouter from "./blogRouter.js";
-import userRouter from "./userRouter.js";
-import recipeRouter from "./RecipeRouter.js";
+import spreadSheetRouter from "./Routes/SpreadSheets/spreadSheetRouter.js";
+import authRouter from "./Routes/Authentication/authRouter.js";
+import blogRouter from "./Routes/Blog/blogRouter.js";
+import userRouter from "./Routes/User/userRouter.js";
+import recipeRouter from "./Routes/Recipe/recipeRouter.js";
 import { request } from "gaxios";
 import process from "process";
 

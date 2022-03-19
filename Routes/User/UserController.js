@@ -1,4 +1,4 @@
-import { User } from "./schemes.js";
+import { User } from "../schemes.js";
 import fs from "fs";
 import path from "path";
 import { hashSync } from "bcrypt";
