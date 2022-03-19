@@ -22,8 +22,8 @@ app.use(express.json());
 app.use(
   cors({
     credentials: true,
-    // origin: "https://web-sheets.netlify.app",
-    origin: "http://localhost:3000/",
+    origin: "https://web-sheets.netlify.app",
+    // origin: "http://localhost:3000/",
     exposedHeaders: ["set-cookie"],
   })
 );
@@ -52,7 +52,7 @@ mongoose.connect(mongoURI);
 // SCHEDULE
 const updateDb = new CronJob("0 * * * *", function () {
   request({
-    url: "https://websheets.herokuapp.com/update_db",
+    url: "https://websheets.herokuapp.com/api/update_db",
     method: "PUT",
   })
     .then()
