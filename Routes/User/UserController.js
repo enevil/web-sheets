@@ -1,6 +1,4 @@
 import { User } from "../schemes.js";
-import fs from "fs";
-import path from "path";
 import { hashSync } from "bcrypt";
 
 class UserController {
@@ -19,19 +17,12 @@ class UserController {
 
   async uploadImage(req, res) {
     try {
-      const { imgFolder, filename } = res.locals;
-      const user = await User.findById(req.query.userId);
-      user.profileImage = filename;
+      const { uuid, userId } = req.body;
+      const user = await User.findById(userId);
+      user.profileImage = uuid;
       await user.save();
 
-      fs.readdirSync(imgFolder).forEach((file) => {
-        if (file.split(".")[0] === req.query.userId && file !== filename) {
-          fs.unlinkSync(path.join(imgFolder, file));
-        }
-      });
-      res
-        .status(200)
-        .json({ message: "uploadImage success", code: "IMAGE_SET_SUCCESS" });
+      res.status(200).json({ message: "uploadImage success" });
     } catch (e) {
       res.status(500).json({ message: "uploadImage undefiend error", e });
     }
