@@ -74,7 +74,6 @@ export default new RecipeController();
 async function deleteImg(recipeId) {
   try {
     const { pathImg } = await Recipe.findById(recipeId);
-    console.log(pathImg.split("/")[0]);
     if (pathImg === "default.png") return;
     const uuid = pathImg.split("/")[0];
     await request({
