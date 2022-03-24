@@ -1,6 +1,4 @@
 import { Recipe } from "../schemes.js";
-import fs from "fs";
-import path from "path";
 import { request } from "gaxios";
 
 class RecipeController {
@@ -44,10 +42,10 @@ class RecipeController {
 
   async updateRecipe(req, res) {
     try {
-      const { id, ...newData } = res.locals.data;
-      newData.pathImg = renameImgToId(id, newData.pathImg);
-      updateImg(id, newData.pathImg);
+      const { id, ...newData } = req.body;
+      deleteImg(id);
       await Recipe.findByIdAndUpdate(id, newData);
+
       res
         .status(200)
         .json({ success: true, message: "Successfully update recipe" });
@@ -73,23 +71,11 @@ class RecipeController {
 
 export default new RecipeController();
 
-function renameImgToId(id, fullPath) {
-  const imgFolder = path.resolve() + "/static/RecipesImages/";
-  const pathParams = fullPath.split(".");
-
-  if (pathParams[0] !== "default") {
-    const newPath = `${id}.${pathParams[1]}.${pathParams[2]}`;
-    fs.renameSync(
-      path.join(imgFolder, fullPath),
-      path.join(imgFolder, newPath)
-    );
-    return newPath;
-  }
-  return "default.png";
-}
-
-async function deleteImg(uuid) {
+async function deleteImg(userId) {
   try {
+    const { pathImg } = await Recipe.findById(userId);
+    if (pathImg === "default.png") return;
+    const uuid = pathImg.split("/")[0];
     await request({
       url: `https://api.uploadcare.com/files/${uuid}/`,
       method: "DELETE",
@@ -101,13 +87,4 @@ async function deleteImg(uuid) {
   } catch (error) {
     console.log("delete image error", error);
   }
-}
-
-function updateImg(id, fullPath) {
-  const imgFolder = path.resolve() + "/static/RecipesImages/";
-  fs.readdirSync(imgFolder).forEach((file) => {
-    if (file.split(".")[0] === id && file !== fullPath) {
-      fs.unlinkSync(path.join(imgFolder, file));
-    }
-  });
 }
