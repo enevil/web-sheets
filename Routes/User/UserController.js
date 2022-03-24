@@ -1,5 +1,6 @@
 import { User } from "../schemes.js";
 import { hashSync } from "bcrypt";
+import { request } from "gaxios";
 
 class UserController {
   async getOneUser(req, res) {
@@ -19,7 +20,16 @@ class UserController {
     try {
       const { uuid, userId, fileName } = req.body;
       const user = await User.findById(userId);
-      console.log(user.profileImage.split("/")[0]);
+      await request({
+        url: `https://api.uploadcare.com/files/${
+          user.profileImage.split("/")[0]
+        }/`,
+        method: "DELETE",
+        headers: {
+          Accept: "application/vnd.uploadcare-v0.5+json",
+          Authorization: `Uploadcare.Simple ${process.env.UPPLOADCARE_PUBLIC_KEY}:${process.env.UPPLOADCARE_SECRET_KEY}`,
+        },
+      });
       user.profileImage = `${uuid}/${fileName}`;
       await user.save();
 
