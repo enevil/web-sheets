@@ -118,6 +118,7 @@ const recipeSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+    default: "default.png",
   },
 });
 
