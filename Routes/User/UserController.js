@@ -20,16 +20,16 @@ class UserController {
     try {
       const { uuid, userId, fileName } = req.body;
       const user = await User.findById(userId);
-      await request({
-        url: `https://api.uploadcare.com/files/${
-          user.profileImage.split("/")[0]
-        }/`,
-        method: "DELETE",
-        headers: {
-          Accept: "application/vnd.uploadcare-v0.5+json",
-          Authorization: `Uploadcare.Simple ${process.env.UPPLOADCARE_PUBLIC_KEY}:${process.env.UPPLOADCARE_SECRET_KEY}`,
-        },
-      });
+      const prevFile = user.profileImage;
+      if (!prevFile !== "default_user.png")
+        await request({
+          url: `https://api.uploadcare.com/files/${prevFile.split("/")[0]}/`,
+          method: "DELETE",
+          headers: {
+            Accept: "application/vnd.uploadcare-v0.5+json",
+            Authorization: `Uploadcare.Simple ${process.env.UPPLOADCARE_PUBLIC_KEY}:${process.env.UPPLOADCARE_SECRET_KEY}`,
+          },
+        });
       user.profileImage = `${uuid}/${fileName}`;
       await user.save();
 
