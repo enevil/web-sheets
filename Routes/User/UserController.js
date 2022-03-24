@@ -17,9 +17,10 @@ class UserController {
 
   async uploadImage(req, res) {
     try {
-      const { uuid, userId } = req.body;
+      const { uuid, userId, fileName } = req.body;
       const user = await User.findById(userId);
-      user.profileImage = uuid;
+      console.log(user.profileImage.split("/")[0]);
+      user.profileImage = `${uuid}/${fileName}`;
       await user.save();
 
       res.status(200).json({ message: "uploadImage success" });
