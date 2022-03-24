@@ -20,10 +20,10 @@ class UserController {
     try {
       const { uuid, userId, fileName } = req.body;
       const user = await User.findById(userId);
-      const prevFile = user.profileImage;
-      if (!prevFile !== "default_user.png")
+      const prevImage = user?.profileImage;
+      if (prevImage)
         await request({
-          url: `https://api.uploadcare.com/files/${prevFile.split("/")[0]}/`,
+          url: `https://api.uploadcare.com/files/${prevImage.split("/")[0]}/`,
           method: "DELETE",
           headers: {
             Accept: "application/vnd.uploadcare-v0.5+json",
