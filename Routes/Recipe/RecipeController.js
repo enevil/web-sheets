@@ -1,6 +1,7 @@
 import { Recipe } from "../schemes.js";
 import fs from "fs";
 import path from "path";
+import { request } from "gaxios";
 
 class RecipeController {
   async getRecipes(req, res) {
@@ -28,14 +29,10 @@ class RecipeController {
 
   async addRecipe(req, res) {
     try {
-      const params = res.locals.data;
+      const params = req.body;
       const recipe = new Recipe({
         ...params,
       });
-
-      // RENAME IMAGE NAME TO ID
-      recipe.pathImg = renameImgToId(recipe.id, recipe.pathImg);
-
       await recipe.save();
       res
         .status(200)
@@ -91,13 +88,19 @@ function renameImgToId(id, fullPath) {
   return "default.png";
 }
 
-function deleteImg(id) {
-  const imgFolder = path.resolve() + "/static/RecipesImages/";
-  fs.readdirSync(imgFolder).forEach((file) => {
-    if (file.split(".")[0] === id) {
-      fs.unlinkSync(path.join(imgFolder, file));
-    }
-  });
+async function deleteImg(uuid) {
+  try {
+    await request({
+      url: `https://api.uploadcare.com/files/${uuid}/`,
+      method: "DELETE",
+      headers: {
+        Accept: "application/vnd.uploadcare-v0.5+json",
+        Authorization: `Uploadcare.Simple ${process.env.UPPLOADCARE_PUBLIC_KEY}:${process.env.UPPLOADCARE_SECRET_KEY}`,
+      },
+    });
+  } catch (error) {
+    console.log("delete image error", error);
+  }
 }
 
 function updateImg(id, fullPath) {
