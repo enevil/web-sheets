@@ -18,7 +18,7 @@ class UserController {
 
   async uploadImage(req, res) {
     try {
-      const { uuid, userId, fileName } = req.body;
+      const { userId, pathImg } = req.body;
       const user = await User.findById(userId);
       const prevImage = user?.profileImage;
       if (prevImage)
@@ -30,7 +30,7 @@ class UserController {
             Authorization: `Uploadcare.Simple ${process.env.UPPLOADCARE_PUBLIC_KEY}:${process.env.UPPLOADCARE_SECRET_KEY}`,
           },
         });
-      user.profileImage = `${uuid}/${fileName}`;
+      user.profileImage = pathImg;
       await user.save();
 
       res.status(200).json({ message: "uploadImage success" });
