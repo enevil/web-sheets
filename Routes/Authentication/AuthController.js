@@ -52,7 +52,6 @@ class AuthController {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        domain: "websheets.herokuapp.com",
       });
 
       res.status(200).json({
@@ -94,7 +93,6 @@ class AuthController {
         httpOnly: true,
         secure: true,
         sameSite: "none",
-        domain: "websheets.herokuapp.com",
       });
       res.status(200).json({
         message: "Login completed",
@@ -113,7 +111,6 @@ class AuthController {
       httpOnly: true,
       secure: true,
       sameSite: "none",
-      domain: "websheets.herokuapp.com",
     });
     res
       .status(200)
