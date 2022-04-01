@@ -50,17 +50,17 @@ mongoose.connection.on("error", function (err) {
 mongoose.connect(mongoURI);
 
 // SCHEDULE
-const updateDb = new CronJob("0 * * * *", function () {
-  request({
-    url: "https://websheets-i.herokuapp.com/api/update_db",
-    method: "PUT",
-  })
-    .then()
-    .catch((error) => {
-      console.log(error);
-    });
-});
-updateDb.start();
+// const updateDb = new CronJob("0 * * * *", function () {
+//   request({
+//     url: "https://websheets-i.herokuapp.com/api/update_db",
+//     method: "PUT",
+//   })
+//     .then()
+//     .catch((error) => {
+//       console.log(error);
+//     });
+// });
+// updateDb.start();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
