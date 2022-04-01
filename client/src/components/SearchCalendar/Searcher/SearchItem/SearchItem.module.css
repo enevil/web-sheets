@@ -1,0 +1,63 @@
+.personItem {
+  cursor: pointer;
+  box-shadow: 2px 2px 3px black;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  overflow: hidden;
+  border-radius: 5px;
+  background: linear-gradient(to right, #a77530 50%, transparent 0) right;
+  background-size: 200% 100%;
+  animation: makeItfadeIn 1s forwards;
+  transition: transform 0.5s ease-in-out, color 0.5s ease-in-out;
+  text-decoration: none;
+  color: black;
+}
+
+.personName {
+  font-weight: 400;
+  font-size: 28px;
+  text-overflow: ellipsis;
+  overflow-wrap: break-word;
+  max-height: 50%;
+  text-transform: capitalize;
+}
+
+.personItem svg {
+  margin-right: 10px;
+  min-width: 35px;
+}
+
+/* SVG AMIMATION  */
+
+.personItem:hover svg rect {
+  fill: rgb(156, 24, 24);
+  opacity: 0.5;
+  transition: 0.5s ease-out;
+}
+
+.personItem:hover svg path:nth-child(n + 3) {
+  opacity: 0.5;
+  fill: rgb(156, 24, 24);
+  transition: 0.5s ease-out;
+}
+
+.personItem:hover svg path:nth-child(n + 3),
+.personItem:hover svg rect,
+.personItem:hover {
+  color: inherit;
+}
+
+/* SVG AMIMATION  */
+
+.personItem:hover {
+  color: white;
+  transform: scale(1.05);
+}
+
+@keyframes makeItfadeIn {
+  100% {
+    background-position: left;
+  }
+}

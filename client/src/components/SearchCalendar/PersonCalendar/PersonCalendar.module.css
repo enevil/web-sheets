@@ -1,0 +1,32 @@
+.calendar {
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+  align-content: center;
+}
+
+.namefield {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.name {
+  font-weight: 600;
+  color: var(--main-brown-color);
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+
+.changeIcon {
+  height: 30px;
+  width: 30px;
+}
+
+.calendarBox {
+  margin-top: auto;
+  border: 1px solid var(--dark-grey-color);
+  border-radius: 5px;
+}

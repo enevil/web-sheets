@@ -1,0 +1,33 @@
+.container {
+  padding: 0 5%;
+  color: var(--main-brown-color);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.topInfo {
+  text-align: center;
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.month {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.month p {
+  display: inline-block;
+}
+
+.arrow {
+  border: 1px solid var(--dark-grey-color);
+  border-radius: 10px;
+  width: 5%;
+}
+
+.monthText {
+  margin: 0 20px;
+}

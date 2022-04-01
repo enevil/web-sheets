@@ -1,0 +1,10 @@
+.submit {
+  border: 1px solid var(--light-grey-color);
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.submit:hover {
+  background: var(--success-color);
+}

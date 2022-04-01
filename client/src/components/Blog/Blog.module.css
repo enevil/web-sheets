@@ -1,0 +1,61 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Oswald", sans-serif;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+.container {
+  padding: 5%;
+  border-left: 1px solid var(--light-grey-color);
+
+  border-right: 1px solid var(--light-grey-color);
+}
+
+.newsHeader {
+  color: var(--main-brown-color);
+  margin-bottom: 30px;
+}
+
+.cardSection {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 15px;
+  row-gap: 30px;
+}
+
+.block {
+  overflow: hidden;
+}
+
+.spinner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 720px) {
+  .cardSection {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .cardSection {
+    grid-template-columns: 1fr;
+  }
+}

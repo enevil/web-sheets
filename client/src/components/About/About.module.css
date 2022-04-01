@@ -1,0 +1,25 @@
+.container {
+  padding: 5%;
+  border-left: 1px solid var(--light-grey-color);
+  border-right: 1px solid var(--light-grey-color);
+}
+
+.block {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 3rem 0;
+  align-items: center;
+}
+
+.carousel {
+  padding: 0 5%;
+}
+
+.mainText {
+  margin-bottom: 3rem;
+}
+
+.title {
+  color: var(--main-brown-color);
+  text-transform: uppercase;
+}

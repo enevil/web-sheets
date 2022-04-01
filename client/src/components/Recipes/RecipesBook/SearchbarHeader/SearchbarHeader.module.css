@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.checkContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.add {
+  border: 1px solid var(--light-grey-color);
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.add:hover {
+  background: var(--success-color);
+}

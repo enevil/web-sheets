@@ -1,0 +1,63 @@
+a {
+  width: 100%;
+}
+
+.item {
+  background-color: var(--main-brown-color);
+  border-radius: 25px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  height: 42px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.25s ease-in-out;
+}
+
+.item:hover {
+  background-color: inherit;
+  border: 1px solid black;
+}
+
+.item:hover .innerText {
+  color: black;
+  font-weight: 600;
+}
+
+.item:hover svg rect,
+.item:hover svg path {
+  fill: black;
+}
+
+.innerText {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  padding-left: 10%;
+}
+
+.item svg {
+  display: inline-block;
+  padding-right: 5%;
+  width: 30px;
+  height: 30px;
+}
+
+.active .item {
+  background-color: inherit;
+  border: 1px solid black;
+}
+
+.active .item .innerText {
+  color: black;
+  font-weight: 600;
+}
+
+.active svg rect,
+.active svg path {
+  fill: black;
+}

@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/static/css/main.9c1ca48a.css",
+    "main.js": "/static/js/main.1d1a92c4.js",
+    "ucare-widget-chunk.js": "/static/js/ucare-widget-chunk.4b742a47.chunk.js",
+    "ucare-panel-chunk.js": "/static/js/ucare-panel-chunk.e7ef6cfc.chunk.js",
+    "static/js/46.f42db7f5.chunk.js": "/static/js/46.f42db7f5.chunk.js",
+    "static/media/CoffeeMania.svg": "/static/media/CoffeeMania.689081dc0197c298e165ef48687ad0b9.svg",
+    "static/media/Coffee.svg": "/static/media/Coffee.71f5569b093909078d65a6a54c111fdd.svg",
+    "static/media/Sign-out .svg": "/static/media/Sign-out .9f1e5a07ff21e22423af487800618fef.svg",
+    "index.html": "/index.html",
+    "static/media/Write.svg": "/static/media/Write.0deffbbedcfaad8a7e336b47b5a6fc46.svg",
+    "static/media/Wine.svg": "/static/media/Wine.986e970f1d30e271d33bf1339079a1e7.svg",
+    "static/media/Dial-numbers.svg": "/static/media/Dial-numbers.813f4bd9931d2759d5080f8ad84f4869.svg",
+    "static/media/Search.svg": "/static/media/Search.4419adac495ab46e8d7859220a8f8f13.svg",
+    "static/media/Statistic.svg": "/static/media/Statistic.bac29a06c0667b620f083868f1bee8ee.svg",
+    "static/media/Combined Shape.svg": "/static/media/Combined Shape.34cfd44b4877c5586512862d9a84549b.svg",
+    "static/media/Profile-icon.svg": "/static/media/Profile-icon.f2b696cf454703556295f1b6c87c6da9.svg",
+    "static/media/Check.svg": "/static/media/Check.11600da8d911a0166159a37b56549b4c.svg",
+    "main.9c1ca48a.css.map": "/static/css/main.9c1ca48a.css.map",
+    "main.1d1a92c4.js.map": "/static/js/main.1d1a92c4.js.map",
+    "ucare-widget-chunk.4b742a47.chunk.js.map": "/static/js/ucare-widget-chunk.4b742a47.chunk.js.map",
+    "ucare-panel-chunk.e7ef6cfc.chunk.js.map": "/static/js/ucare-panel-chunk.e7ef6cfc.chunk.js.map",
+    "46.f42db7f5.chunk.js.map": "/static/js/46.f42db7f5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9c1ca48a.css",
+    "static/js/main.1d1a92c4.js"
+  ]
+}

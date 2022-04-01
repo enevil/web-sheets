@@ -1,0 +1,26 @@
+.workshiftBox {
+  min-height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  gap: 1.5rem;
+  padding: 0 1rem;
+  align-content: flex-start;
+}
+
+.myShift {
+  border: 1px solid var(--dark-grey-color);
+}
+
+.nextPersons {
+  border: 1px solid var(--light-grey-color);
+  color: var(--dark-grey-color);
+  border-radius: 5px;
+  height: 3rem;
+  text-transform: capitalize;
+}
+
+.nextPersons:hover {
+  background-color: var(--light-yellow-color);
+  color: var(--dark-grey-color);
+}

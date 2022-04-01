@@ -1,0 +1,19 @@
+.soonWorkshifts_item {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: min-content min-content 1fr;
+  align-items: center;
+  justify-content: space-between;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  padding: 5px 15px;
+  margin: 15px 0;
+  text-align: center;
+  color: white;
+  background-color: var(--main-brown-color);
+}
+
+.date {
+  font-size: 1.2rem;
+}

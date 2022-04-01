@@ -1,0 +1,11 @@
+.fileSend {
+  border: 1px solid var(--light-grey-color);
+  margin-left: 24px;
+  min-width: 45px;
+  height: 45px;
+  text-transform: capitalize;
+}
+
+.fileSend:hover {
+  background: var(--success-color);
+}

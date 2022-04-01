@@ -1,0 +1,93 @@
+button {
+  font: inherit;
+  background: none;
+  color: inherit;
+  border: none;
+  cursor: pointer;
+  outline: inherit;
+}
+.react-calendar {
+  padding: 5%;
+}
+.react-calendar__navigation {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.react-calendar__navigation__arrow {
+  font-size: 34px;
+  width: 40px;
+  background: var(--light-yellow-color);
+  color: var(--main-brown-color);
+  border-radius: 25%;
+}
+.react-calendar__navigation__label {
+  pointer-events: none;
+  text-transform: capitalize;
+  font-weight: 600;
+  color: var(--dark-grey-color);
+}
+
+.react-calendar__navigation__prev2-button,
+.react-calendar__navigation__next2-button {
+  display: none;
+}
+
+.react-calendar__month-view__weekdays {
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
+abbr[title] {
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: capitalize;
+  outline: none;
+  color: var(--dark-grey-color);
+}
+
+.react-calendar__month-view__days {
+  margin-top: 20px;
+  display: grid !important;
+  grid-template-columns: repeat(7, 1fr);
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.react-calendar__month-view__days button {
+  max-width: none !important;
+  height: 3rem;
+}
+
+.highlight__day {
+  background: var(--calendar-highlight);
+  background: linear-gradient(
+      to right,
+      var(--calendar-highlight) 50%,
+      transparent 0
+    )
+    right;
+  background-size: 250%;
+
+  animation: makeItfadeIn 0.7s ease-in-out;
+  animation-fill-mode: forwards;
+  color: rgb(255, 255, 255);
+  border-radius: 25%;
+}
+
+.react-calendar__tile--active {
+  font-weight: 800;
+  border: 1px solid var(--dark-grey-color);
+  border-radius: 25%;
+}
+
+.highlight__day.react-calendar__tile--active {
+  color: var(--dark-grey-color);
+  border: none;
+}
+
+@keyframes makeItfadeIn {
+  100% {
+    background-position: left;
+  }
+}

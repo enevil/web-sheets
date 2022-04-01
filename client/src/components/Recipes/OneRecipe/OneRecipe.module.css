@@ -1,0 +1,94 @@
+.header {
+  margin-top: 20px;
+  padding: 10px;
+
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+}
+
+.imgSection {
+  height: 200px;
+  background: var(--light-grey-color);
+  border: 1px solid var(--light-grey-color);
+  margin-right: 10px;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.mainFields {
+  font-size: 2rem;
+  text-transform: uppercase;
+  height: 100%;
+  display: grid;
+  gap: 10px;
+  align-content: center;
+  justify-content: center;
+  justify-items: center;
+}
+
+.label {
+  font-weight: 700;
+}
+
+.bodyNames {
+  margin: 10px 0;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+
+  border-bottom: 1px solid var(--light-grey-color);
+}
+
+.productBox {
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.descriptionContainer {
+  margin-top: 20px;
+}
+
+.descriptionText {
+  white-space: pre-line;
+}
+
+.caption {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.changeContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: 1px solid var(--light-grey-color);
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 0 10px;
+  width: min-content;
+}
+
+.delete:hover {
+  background-color: var(--danger-color);
+}
+
+.change:hover {
+  background-color: var(--light-yellow-color);
+}

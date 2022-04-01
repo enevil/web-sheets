@@ -61,3 +61,7 @@ const updateDb = new CronJob("0 * * * *", function () {
     });
 });
 updateDb.start();
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}

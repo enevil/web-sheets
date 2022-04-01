@@ -1,0 +1,22 @@
+.container {
+  width: 100%;
+  padding: 10px 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.neutral {
+  border: 1px solid var(--light-grey-color);
+}
+
+.success {
+  color: var(--success-color);
+  border: 1px solid var(--success-color);
+}
+
+.error {
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+}

@@ -1,0 +1,87 @@
+:root {
+  --main-brown-color: #3f372c;
+  --main-yellow-color: #dbbd8b;
+  --light-yellow-color: #e8d5b5;
+  --dark-grey-color: #3c3c3c;
+  --light-grey-color: #d3d3d3;
+  --danger-color: #c0817f;
+  --success-color: #7bc582;
+  --calendar-highlight: #c96565;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 24px;
+  min-height: 100vh;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
+a:link {
+  color: inherit;
+}
+a:visited {
+  color: inherit;
+}
+
+.MainContainer {
+  margin: 0 auto;
+  max-width: 960px;
+}
+
+.csContainer {
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: 3fr 10fr;
+}
+
+.defaultContainer {
+  padding: 0 5%;
+  margin-bottom: 5%;
+}
+
+/* Widget File Upload */
+
+.uploadcare--widget__button.uploadcare--widget__button_type_open {
+  background-color: var(--main-yellow-color);
+  outline: none;
+  border-radius: 0;
+}
+
+.uploadcare--widget__file-size {
+  display: none;
+}
+
+.uploadcare--widget__file-name,
+.uploadcare--widget__file-name:hover,
+.uploadcare--widget__file-name:focus {
+  color: transparent;
+  outline: none;
+}
+
+.uploadcare--widget__file-name:before {
+  content: "Изменить";
+  color: white;
+  background-color: var(--main-yellow-color);
+  padding: 8px 10px;
+}
+
+.uploadcare--widget__text {
+  padding: 0;
+}

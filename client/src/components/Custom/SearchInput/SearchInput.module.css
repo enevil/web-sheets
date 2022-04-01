@@ -1,0 +1,21 @@
+.searchbarItem {
+  position: relative;
+}
+
+.loupe {
+  position: absolute;
+  height: 45px;
+  width: 45px;
+  top: 0;
+  left: 5px;
+}
+
+.searchInput {
+  height: 50px;
+  font-size: 26px;
+  border: 2px solid black;
+  border-radius: 15px;
+  padding: 5px 5px 5px 55px;
+  background-color: white;
+  outline: none;
+}

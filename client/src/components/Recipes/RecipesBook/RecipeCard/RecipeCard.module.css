@@ -1,0 +1,27 @@
+.card {
+  height: 200px;
+  border: 1px solid var(--light-grey-color);
+}
+
+.imgSection {
+  background-color: var(--light-grey-color);
+  width: 100%;
+  height: 100%;
+}
+
+.img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: rgb(255, 255, 255);
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}

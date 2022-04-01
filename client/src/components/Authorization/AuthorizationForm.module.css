@@ -1,0 +1,41 @@
+.bg {
+  background: linear-gradient(
+    var(--main-yellow-color),
+    var(--light-yellow-color)
+  );
+  height: 100vh;
+}
+
+.container {
+  padding: 15% 25% 0 25%;
+}
+
+.innerContainer {
+  border: 1px solid var(--dark-grey-color);
+  padding: 0 10% 5% 10%;
+}
+
+.switcher {
+  margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hr {
+  height: 1px;
+  background-color: var(--main-brown-color);
+  margin: 15px 0;
+}
+
+.label {
+  color: var(--dark-grey-color);
+  cursor: pointer;
+}
+
+.label:hover {
+  color: var(--main-brown-color);
+}
+
+.active {
+  color: var(--main-brown-color);
+}

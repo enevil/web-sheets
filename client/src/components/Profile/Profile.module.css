@@ -1,0 +1,72 @@
+.container {
+  padding: 0 5%;
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+}
+
+.imgSection {
+  background-color: var(--light-grey-color);
+  border-radius: 25px;
+  height: 180px;
+}
+
+.imgCover {
+  border-radius: 25px;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+
+.mainInfo {
+  padding: 0 5%;
+}
+
+.name {
+  text-transform: capitalize;
+  color: var(--main-brown-color);
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+
+.username {
+  color: var(--dark-grey-color);
+}
+
+.bodyContainer {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 5fr 4fr;
+}
+
+.soonWorkshifts {
+  padding-right: 10%;
+}
+
+.soonWorkshifts_header {
+  background-color: var(--main-yellow-color);
+  padding: 5px 20px;
+  border-top-right-radius: 25px;
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.soonWorkshifts_body {
+  margin-top: 15px;
+  padding: 15px;
+
+  background: linear-gradient(
+    var(--main-yellow-color),
+    var(--light-yellow-color)
+  );
+  border-bottom-right-radius: 25px;
+}
+
+.notFound {
+  padding: 5% 0;
+  font-weight: 500;
+}

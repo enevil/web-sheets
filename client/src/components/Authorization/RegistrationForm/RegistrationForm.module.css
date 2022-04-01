@@ -1,0 +1,20 @@
+.form {
+  display: grid;
+  row-gap: 15px;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 26px;
+  border: 2px solid black;
+  padding: 10px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.submit:hover {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  transition: 0.2s ease-in-out;
+}
