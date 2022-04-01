@@ -1,19 +1,17 @@
 import express from "express";
-// import path from "path";
 import cors from "cors";
-// import { CronJob } from "cron";
+import { CronJob } from "cron";
 import mongoose from "mongoose";
 import spreadSheetRouter from "./Routes/SpreadSheets/spreadSheetRouter.js";
 import authRouter from "./Routes/Authentication/authRouter.js";
 import blogRouter from "./Routes/Blog/blogRouter.js";
 import userRouter from "./Routes/User/userRouter.js";
 import recipeRouter from "./Routes/Recipe/recipeRouter.js";
-// import { request } from "gaxios";
+import { request } from "gaxios";
 import process from "process";
 
 const PORT = process.env.PORT || 5000;
-const mongoURI =
-  "mongodb+srv://enevil:html5656@cluster0.dlo9a.mongodb.net/sheets?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGO_URI;
 
 const app = express();
 
@@ -43,17 +41,17 @@ mongoose.connection.on("error", function (err) {
 mongoose.connect(mongoURI);
 
 // SCHEDULE
-// const updateDb = new CronJob("0 * * * *", function () {
-//   request({
-//     url: "https://websheets-i.herokuapp.com/api/update_db",
-//     method: "PUT",
-//   })
-//     .then()
-//     .catch((error) => {
-//       console.log(error);
-//     });
-// });
-// updateDb.start();
+const updateDb = new CronJob("0 * * * *", function () {
+  request({
+    url: "https://websheets-i.herokuapp.com/api/update_db",
+    method: "PUT",
+  })
+    .then()
+    .catch((error) => {
+      console.log(error);
+    });
+});
+updateDb.start();
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
