@@ -1,14 +1,14 @@
 import express from "express";
-import path from "path";
+// import path from "path";
 import cors from "cors";
-import { CronJob } from "cron";
+// import { CronJob } from "cron";
 import mongoose from "mongoose";
 import spreadSheetRouter from "./Routes/SpreadSheets/spreadSheetRouter.js";
 import authRouter from "./Routes/Authentication/authRouter.js";
 import blogRouter from "./Routes/Blog/blogRouter.js";
 import userRouter from "./Routes/User/userRouter.js";
 import recipeRouter from "./Routes/Recipe/recipeRouter.js";
-import { request } from "gaxios";
+// import { request } from "gaxios";
 import process from "process";
 
 const PORT = process.env.PORT || 5000;
@@ -28,7 +28,7 @@ app.use(
   })
 );
 //ROUTER
-app.use("/static", express.static(path.join(path.resolve(), "static")));
+// app.use("/static", express.static(path.join(path.resolve(), "static")));
 app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
