@@ -17,9 +17,8 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
-app.use(cors());
+app.use(cors({ origin: "localhost:3000" }));
 //ROUTER
-// app.use("/static", express.static(path.join(path.resolve(), "static")));
 app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
