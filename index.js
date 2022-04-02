@@ -17,7 +17,7 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
-app.use(cors({ origin: "localhost:3000" }));
+app.use(cors({ origin: "http://localhost:3000" }));
 //ROUTER
 app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
