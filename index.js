@@ -17,7 +17,14 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(
+  cors({
+    credentials: true,
+    // origin: "https://web-sheets.netlify.app",
+    origin: "http://localhost:3000",
+    exposedHeaders: ["set-cookie"],
+  })
+);
 //ROUTER
 app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
