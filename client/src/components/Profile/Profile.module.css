@@ -9,13 +9,12 @@
 
 .imgSection {
   background-color: var(--light-grey-color);
-  border-radius: 25px;
+  border-radius: 2rem;
   height: 180px;
 }
 
 .imgCover {
-  border-radius: 25px;
-
+  border-radius: 2rem;
   background-size: cover;
   background-repeat: no-repeat;
   width: 100%;
@@ -38,7 +37,7 @@
 }
 
 .bodyContainer {
-  margin-top: 30px;
+  margin-top: 2rem;
   display: grid;
   grid-template-columns: 5fr 4fr;
 }
@@ -49,24 +48,40 @@
 
 .soonWorkshifts_header {
   background-color: var(--main-yellow-color);
-  padding: 5px 20px;
-  border-top-right-radius: 25px;
+  border-top-right-radius: 2rem;
   font-weight: 600;
-  font-size: 1.4rem;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5% 0;
 }
 
 .soonWorkshifts_body {
-  margin-top: 15px;
-  padding: 15px;
+  margin-top: 1rem;
+  padding: 1rem;
 
   background: linear-gradient(
     var(--main-yellow-color),
     var(--light-yellow-color)
   );
-  border-bottom-right-radius: 25px;
+  border-bottom-right-radius: 2rem;
 }
 
 .notFound {
   padding: 5% 0;
   font-weight: 500;
+}
+
+@media screen and (max-width: 540px) {
+  .bodyContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .soonWorkshifts {
+    padding-right: 0;
+  }
+
+  .soonWorkshifts_header,
+  .soonWorkshifts_body {
+    border-radius: 0;
+  }
 }

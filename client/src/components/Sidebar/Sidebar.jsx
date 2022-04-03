@@ -8,7 +8,7 @@ import { ReactComponent as WineSvg } from "../../svg/Wine.svg";
 
 const Sidebar = () => {
   return (
-    <div className="Sidebar">
+    <div className={css.sidebar}>
       <div className={css.container}>
         <SidebarItem text="Мой профиль" svg={<ProfileIcon />} />
         <SidebarItem to="calendar" text="Календарь" svg={<CalendarSvg />} />

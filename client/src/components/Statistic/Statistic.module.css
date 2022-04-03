@@ -2,14 +2,13 @@
   padding: 0 5%;
   color: var(--main-brown-color);
   text-transform: uppercase;
-  white-space: nowrap;
 }
 
 .topInfo {
   text-align: center;
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 20px;
+  margin-bottom: 1rem;
 }
 
 .month {
@@ -24,10 +23,29 @@
 
 .arrow {
   border: 1px solid var(--dark-grey-color);
-  border-radius: 10px;
-  width: 5%;
+  border-radius: 1rem;
+  padding: 0 5%;
 }
 
 .monthText {
-  margin: 0 20px;
+  margin: 0 1rem;
+}
+
+@media screen and (max-width: 540px) {
+  .container {
+    display: grid;
+    grid-template-rows: min-content 1fr min-content min-content;
+    align-items: center;
+  }
+  .topInfo {
+    font-size: 1.5rem;
+  }
+  .month {
+    font-size: 1.25rem;
+    margin-top: auto;
+    height: 100%;
+  }
+  .arrow {
+    width: 5%;
+  }
 }

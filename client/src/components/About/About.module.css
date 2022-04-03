@@ -13,13 +13,21 @@
 
 .carousel {
   padding: 0 5%;
+  height: 100%;
 }
 
 .mainText {
-  margin-bottom: 3rem;
+  padding: 3rem;
 }
 
 .title {
   color: var(--main-brown-color);
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 540px) {
+  .block {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

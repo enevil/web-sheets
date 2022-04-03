@@ -1,14 +1,15 @@
-.button {
+.button,
+.item {
   font-family: "Oswald", sans-serif;
   font-weight: 500;
+  font-size: 1.6rem;
   letter-spacing: 1px;
-  font-size: 24px;
   text-transform: uppercase;
   cursor: pointer;
   color: var(--main-brown-color);
 }
 .nav {
-  height: 72px;
+  height: 4rem;
   background-color: var(--main-yellow-color);
 }
 
@@ -21,55 +22,79 @@
 
 .itemContainer {
   flex-grow: 1;
-  list-style: none;
-  height: 100%;
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  font-family: "Oswald", sans-serif;
-  font-weight: 500;
   letter-spacing: 1px;
-  font-size: 24px;
-  text-transform: uppercase;
-
-  color: var(--main-brown-color);
 }
 
 .item {
   display: inline-block;
-  margin-right: 30px;
+  margin: 0 1rem;
   transition: 0.2s ease-in-out;
 }
 
 .pages .item:hover {
-  color: black;
   transform: translateY(-5px);
 }
 
 .logo {
-  width: 230px;
+  width: 10rem;
   display: inline-block;
   text-align: center;
 }
 
 .logo svg {
-  width: 50px;
+  width: 3rem;
   display: inline-block;
   padding-top: 5px;
 }
 
 .exitSvg {
   display: inline-block;
-  margin-right: 10px;
   position: relative;
 }
 
 .exitSvg svg {
   position: absolute;
   bottom: -4px;
-  right: 0px;
+  right: -5px;
 }
 
 .active {
   border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 720px) {
+  .logo {
+    display: none;
+  }
+
+  .item {
+    margin: 0 0.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .loginText {
+    display: none;
+  }
+
+  .exitSvg svg {
+    position: relative;
+    margin-right: 1rem;
+    width: 1.7rem;
+  }
+
+  .button,
+  .item {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .button,
+  .item {
+    font-size: 1.25rem;
+  }
 }

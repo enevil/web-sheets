@@ -1,4 +1,5 @@
 .card {
+  width: 150px;
   height: 200px;
   border: 1px solid var(--light-grey-color);
 }
@@ -24,4 +25,12 @@
   color: rgb(255, 255, 255);
   background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
+}
+
+@media screen and (max-width: 540px) {
+  .card {
+    width: 125px;
+    height: 166px;
+    border: 1px solid var(--light-grey-color);
+  }
 }

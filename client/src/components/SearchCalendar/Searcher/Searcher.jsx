@@ -20,7 +20,7 @@ const Searcher = () => {
   if (personId) return <Navigate to={`/user/calendar/${personId}`} />;
 
   return (
-    <section className={css.searcher}>
+    <section className="defaultContainer">
       <div className={css.searchbar}>
         <Input onInput={setValSearch} value={valSearch} />
       </div>

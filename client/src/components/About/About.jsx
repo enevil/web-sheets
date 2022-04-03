@@ -4,7 +4,7 @@ import Carousel from "./Carousel/Carousel";
 
 const About = () => {
   return (
-    <section className={css.container}>
+    <div className={css.container}>
       <h1 className={css.title}>О Компании</h1>
       <div className={css.block}>
         <div className={css.text}>
@@ -32,31 +32,7 @@ const About = () => {
           </Carousel>
         </div>
       </div>
-      <div className={css.block}>
-        <div className={css.carousel}>
-          <Carousel>
-            <img
-              src={`${domain}/static/AboutImages/carousel2.1.jpg`}
-              alt="img4"
-            />
-            <img
-              src={`${domain}/static/AboutImages/carousel2.2.jpg`}
-              alt="img5"
-            />
-            <img
-              src={`${domain}/static/AboutImages/carousel2.3.jpg`}
-              alt="img6"
-            />
-          </Carousel>
-        </div>
-        <div className={css.text}>
-          Сотрудники Кофемании любимы гостями не только благодаря своим
-          профессиональным навыкам и знаниям, но и своей отзывчивости и
-          искреннему отношению. С 2001 г. Кофемания получила более 40
-          профессиональных и общественных наград, многократно завоёвывала титул
-          победителя в самых разных соревнованиях и конкурсах.
-        </div>
-      </div>
+      <hr />
       <div className={css.mainText}>
         Из года в год Кофемания подтверждает свою репутацию трендсеттера в
         развитии кофейной культуры России. Именно благодаря Кофемании профессия
@@ -72,7 +48,7 @@ const About = () => {
         <img src={`${domain}/static/AboutImages/carousel3.1.jpg`} alt="img7" />
         <img src={`${domain}/static/AboutImages/carousel3.2.jpg`} alt="img8" />
       </Carousel>
-    </section>
+    </div>
   );
 };
 

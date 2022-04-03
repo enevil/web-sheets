@@ -1,11 +1,10 @@
 .workshiftBox {
-  min-height: 100%;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto;
   gap: 1.5rem;
-  padding: 0 1rem;
-  align-content: flex-start;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 0 5%;
 }
 
 .myShift {
@@ -23,4 +22,10 @@
 .nextPersons:hover {
   background-color: var(--light-yellow-color);
   color: var(--dark-grey-color);
+}
+
+@media screen and (max-width: 720px) {
+  .workshiftBox {
+    padding: 0;
+  }
 }

@@ -4,28 +4,36 @@
 
 .todayBlockHeader {
   background-color: var(--light-grey-color);
-  border-top-left-radius: 25px;
-  padding: 13px 0;
+  border-top-left-radius: 2rem;
+  padding: 5% 0;
   text-align: center;
 }
 
 .todayBlockBody {
   background-color: var(--light-grey-color);
-  border-bottom-left-radius: 25px;
-  margin-top: 20px;
+  border-bottom-left-radius: 2rem;
+  margin-top: 1rem;
   text-align: center;
-  padding: 10px 0;
+  padding: 5% 0;
 }
 
 .today {
-  font-size: 2rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 .day {
   font-weight: 500;
-  font-size: 2rem;
 }
 .month {
   margin-top: 15px;
+}
+
+@media screen and (max-width: 540px) {
+  .todayBlockHeader {
+    display: none;
+  }
+  .todayBlockHeader,
+  .todayBlockBody {
+    border-radius: 0;
+  }
 }

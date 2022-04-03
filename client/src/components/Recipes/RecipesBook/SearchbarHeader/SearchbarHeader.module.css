@@ -10,6 +10,10 @@
   flex-direction: column;
 }
 
+.checkContainer > label {
+  text-align: center;
+}
+
 .checkbox {
   width: 20px;
   height: 20px;

@@ -33,9 +33,9 @@ input[type="file"] {
 }
 
 .textInput {
-  min-width: 15px;
-  padding: 10px;
+  min-width: 1rem;
+  padding: 0.25rem 1rem;
   border: 1px solid var(--light-grey-color);
-  font-size: 24px;
-  height: 40px;
+  font-size: 1.5rem;
+  width: 100%;
 }

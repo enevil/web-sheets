@@ -3,16 +3,25 @@
     var(--main-yellow-color),
     var(--light-yellow-color)
   );
-  height: 100vh;
+  min-height: 100vh;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
 }
 
 .container {
-  padding: 15% 25% 0 25%;
+  padding: 10% 25%;
+  align-items: center;
+  height: min-content;
 }
 
 .innerContainer {
   border: 1px solid var(--dark-grey-color);
   padding: 0 10% 5% 10%;
+  align-items: center;
 }
 
 .switcher {
@@ -38,4 +47,10 @@
 
 .active {
   color: var(--main-brown-color);
+}
+
+@media screen and (max-width: 540px) {
+  .container {
+    padding: 10%;
+  }
 }

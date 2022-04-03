@@ -150,8 +150,8 @@ const Statistic = () => {
         <button onClick={() => monthSwitch(1)} className={css.arrow}>
           {">"}
         </button>
-        <Results visDate={visDate}></Results>
       </div>
+      <Results visDate={visDate}></Results>
     </div>
   );
 };

@@ -79,7 +79,7 @@ const ProfileContent = () => {
       </div>
       <div className={css.bodyContainer}>
         <div className={css.soonWorkshifts}>
-          <div className={css.soonWorkshifts_header}>БЛИЖАЙШИЕ РАБОЧИЕ ДНИ</div>
+          <div className={css.soonWorkshifts_header}>БЛИЖАЙШИЕ СМЕНЫ</div>
           <div className={css.soonWorkshifts_body}>
             {sortedWorkShifts?.length ? (
               sortedWorkShifts

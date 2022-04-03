@@ -5,7 +5,7 @@ import { withAuth } from "./components/hoc/withAuth";
 const LayoutSecondary = () => {
   return (
     <>
-      <div className="MainContainer csContainer">
+      <div className="csContainer">
         <Sidebar></Sidebar>
         <Outlet />
       </div>

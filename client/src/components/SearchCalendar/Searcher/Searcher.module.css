@@ -20,14 +20,19 @@
   border: 2px solid black;
   border-radius: 15px;
   padding: 5px 5px 5px 55px;
-  background-color: rgba(255, 255, 255, 0.301);
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .datalist {
-  list-style: none;
   display: grid;
   margin-top: 40px;
   gap: 10px;
   justify-content: space-between;
   grid-template-columns: 1fr 1fr;
+}
+
+@media screen and (max-width: 540px) {
+  .datalist {
+    grid-template-columns: 1fr;
+  }
 }
