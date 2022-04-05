@@ -9,7 +9,6 @@ import userRouter from "./Routes/User/userRouter.js";
 import recipeRouter from "./Routes/Recipe/recipeRouter.js";
 import { request } from "gaxios";
 import process from "process";
-import path from "path";
 
 const PORT = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
@@ -25,7 +24,6 @@ app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 app.use("/user", userRouter);
 app.use("/recipe", recipeRouter);
-
 app.listen(PORT, () => console.log(`SERVER START WORKING ON PORT ${PORT}`));
 
 // MONGOOSE
@@ -55,8 +53,8 @@ const updateDb = new CronJob("0 * * * *", function () {
 updateDb.start();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(__dirname, "./client/build")));
-  // app.get("*", function (req, res) {
-  //   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-  // });
+  app.use(express.static("client/build"));
+  app.get("*", function (request, response) {
+    response.sendFile("client/build/index.html");
+  });
 }
