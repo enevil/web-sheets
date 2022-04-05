@@ -19,9 +19,9 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    // credentials: true,
-    // origin: "http://localhost:3000",
-    // exposedHeaders: ["set-cookie"],
+    credentials: true,
+    origin: "http://localhost:3000",
+    exposedHeaders: ["set-cookie"],
   })
 );
 //ROUTER
