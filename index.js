@@ -54,13 +54,13 @@ const updateDb = new CronJob("0 * * * *", function () {
 updateDb.start();
 
 if (process.env.NODE_ENV === "production") {
-  console.log(path.resolve(__dirname));
+  console.log(path.resolve());
   // app.use(express.static("client/build"));
-  app.use(express.static(path.resolve(__dirname, "../client", "build")));
+  app.use(express.static(path.resolve("client", "build")));
 
   app.get("*", (req, res) => {
     // Serve index.html file if it doesn't recognize the route
-    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html")); // <- Here !
+    res.sendFile(path.resolve("client", "build", "index.html")); // <- Here !
   });
   // app.get("*", function (request, response) {
   //   response.sendFile("client/build/index.html");
