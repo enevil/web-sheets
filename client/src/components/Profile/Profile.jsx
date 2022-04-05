@@ -73,7 +73,7 @@ const ProfileContent = () => {
           ></div>
         </div>
         <div className={css.mainInfo}>
-          <p className={css.name}>{firstName + " " + lastName}</p>
+          <p className={`title + ${css.name}`}>{firstName + " " + lastName}</p>
           <p className={css.username}>{username}</p>
         </div>
       </div>

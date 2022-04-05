@@ -15,6 +15,12 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
 body {
   font-size: 26px;
 }
@@ -26,16 +32,11 @@ h4,
 h5 {
   font-family: "Oswald", sans-serif;
   text-transform: uppercase;
-  color: (var(--main-brown-color));
-}
-
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+  color: var(--main-brown-color);
 }
 
 a {
+  width: 100%;
   text-decoration: none;
 }
 a:link {
@@ -45,10 +46,8 @@ a:visited {
   color: inherit;
 }
 
-html,
-body,
-#root {
-  height: 100%;
+input {
+  font-size: inherit;
 }
 
 .MainContainer {
@@ -67,6 +66,14 @@ body,
 .defaultContainer {
   padding: 0 5%;
   margin-bottom: 5%;
+}
+
+.title {
+  text-transform: uppercase;
+  color: var(--main-brown-color);
+  font-weight: 600;
+  font-size: 2.25rem;
+  text-align: center;
 }
 
 @media screen and (max-width: 960px) {
@@ -96,6 +103,10 @@ body,
   body {
     font-size: 20px;
   }
+
+  .title {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (max-width: 360px) {
@@ -104,12 +115,28 @@ body,
   }
 }
 
+/* ARROW OF ON INPUT TYPE NUMBER */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* Widget File Upload */
 
-.uploadcare--widget__button.uploadcare--widget__button_type_open {
+.uploadcare--widget {
+  width: 100%;
+}
+
+.uploadcare--widget__button {
   background-color: var(--main-yellow-color);
   outline: none;
   border-radius: 0;
+  padding: 0.4rem 0.5rem;
+  border: 1px solid var(--light-grey-color);
+  width: 100%;
+  white-space: normal;
 }
 
 .uploadcare--widget__file-size {

@@ -20,9 +20,8 @@
   padding: 3rem;
 }
 
-.title {
-  color: var(--main-brown-color);
-  text-transform: uppercase;
+.text {
+  font-size: 1.25rem;
 }
 
 @media screen and (max-width: 540px) {

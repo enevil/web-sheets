@@ -136,7 +136,7 @@ const Statistic = () => {
 
   return (
     <div className={css.container}>
-      <div className={css.topInfo}>
+      <div className="title">
         <p>Кол-во отработанных часов</p>
       </div>
       <Bar options={options} data={data} />

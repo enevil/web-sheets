@@ -2,10 +2,6 @@ input[type="file"] {
   display: none;
 }
 
-.container {
-  padding: 0 5%;
-}
-
 .item {
   display: grid;
   grid-template-columns: 1fr 1fr;

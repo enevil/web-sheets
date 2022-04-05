@@ -17,19 +17,15 @@ const app = express();
 
 // MIDDLEWARE
 app.use(express.json());
-app.use(
-  cors({
-    credentials: true,
-    origin: "http://localhost:3000",
-    exposedHeaders: ["set-cookie"],
-  })
-);
+app.use(cors());
 //ROUTER
 app.use("/api", spreadSheetRouter);
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 app.use("/user", userRouter);
 app.use("/recipe", recipeRouter);
+app.use("*", express.static("client/build"));
+
 app.listen(PORT, () => console.log(`SERVER START WORKING ON PORT ${PORT}`));
 
 // MONGOOSE

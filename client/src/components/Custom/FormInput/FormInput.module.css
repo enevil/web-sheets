@@ -3,10 +3,9 @@
 }
 
 .loginInput {
-  min-width: 15px;
-  padding: 10px;
+  min-width: 2.5rem;
+  padding: 0.25rem;
   border: 1px solid var(--light-grey-color);
-  font-size: 24px;
   height: 40px;
 }
 
@@ -17,5 +16,4 @@
 
 .error {
   color: var(--danger-color);
-  font-size: 22px;
 }

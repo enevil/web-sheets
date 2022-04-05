@@ -69,7 +69,7 @@ const PersonCalendar = (props) => {
   return (
     <section className="defaultContainer">
       <div className={css.namefield}>
-        <p className={css.name}>{personName}</p>
+        <p className="title">{personName}</p>
         <Link
           className={css.changeIcon}
           to="/user/calendar"

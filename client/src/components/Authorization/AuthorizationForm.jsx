@@ -8,28 +8,26 @@ const AuthorizationForm = () => {
 
   return (
     <div className={css.bg}>
-      <div className={`MainContainer + ${css.wrapper}`}>
-        <div className={css.container}>
-          <div className={css.innerContainer}>
-            <div className={css.switcher}>
-              <h2
-                onClick={() => setIsRegistration(false)}
-                className={css.label + " " + (!isRegistration && css.active)}
-              >
-                Вход
-              </h2>
-              <h2
-                onClick={() => setIsRegistration(true)}
-                className={css.label + " " + (isRegistration && css.active)}
-              >
-                Регистрация
-              </h2>
-            </div>
-
-            <div className={css.hr} />
-
-            {isRegistration ? <RegistrationForm /> : <LoginForm />}
+      <div className={css.container}>
+        <div className={css.innerContainer}>
+          <div className={css.switcher}>
+            <h2
+              onClick={() => setIsRegistration(false)}
+              className={css.label + " " + (isRegistration ? null : css.active)}
+            >
+              Вход
+            </h2>
+            <h2
+              onClick={() => setIsRegistration(true)}
+              className={css.label + " " + (isRegistration ? css.active : null)}
+            >
+              Регистрация
+            </h2>
           </div>
+
+          <div className={css.hr} />
+
+          {isRegistration ? <RegistrationForm /> : <LoginForm />}
         </div>
       </div>
     </div>

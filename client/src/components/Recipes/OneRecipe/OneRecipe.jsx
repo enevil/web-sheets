@@ -52,7 +52,7 @@ const OneRecipe = () => {
           ></div>
         </div>
         <div className={css.mainFields}>
-          <p className={css.label}>{name}</p>
+          <p className="title">{name}</p>
           <p className={css.type}>{type}</p>
         </div>
       </div>

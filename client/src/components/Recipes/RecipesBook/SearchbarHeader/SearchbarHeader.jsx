@@ -19,7 +19,7 @@ const SearchbarHeader = () => {
     <div className={css.header}>
       <Input value={searchValue} onInput={setSearchValue} />
       <div className={css.checkContainer}>
-        <label htmlFor="belong">Только мои</label>
+        <label htmlFor="belong">Мои</label>
         <input
           value={belongToUser}
           onInput={(e) => setBelongToUser(e.target.checked)}
@@ -30,7 +30,7 @@ const SearchbarHeader = () => {
       </div>
 
       <Link to="add" className={css.add}>
-        +
+        Добавить
       </Link>
     </div>
   );

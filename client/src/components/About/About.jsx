@@ -5,7 +5,7 @@ import Carousel from "./Carousel/Carousel";
 const About = () => {
   return (
     <div className={css.container}>
-      <h1 className={css.title}>О Компании</h1>
+      <h1>О Компании</h1>
       <div className={css.block}>
         <div className={css.text}>
           Для многих гостей Кофемания — неотъемлемая часть жизни вот уже на
@@ -33,7 +33,7 @@ const About = () => {
         </div>
       </div>
       <hr />
-      <div className={css.mainText}>
+      <div className={css.mainText + " " + css.text}>
         Из года в год Кофемания подтверждает свою репутацию трендсеттера в
         развитии кофейной культуры России. Именно благодаря Кофемании профессия
         бариста стала частью ресторанного мира, получил популярность самый

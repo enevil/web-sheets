@@ -10,7 +10,13 @@
 .imgSection {
   background-color: var(--light-grey-color);
   border-radius: 2rem;
-  height: 180px;
+  position: relative;
+}
+
+.imgSection::before {
+  content: "";
+  display: block;
+  padding-top: 100%; /* initial ratio of 1:1*/
 }
 
 .imgCover {
@@ -19,17 +25,17 @@
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0;
 }
 
 .mainInfo {
   padding: 0 5%;
+  overflow: hidden;
 }
 
 .name {
-  text-transform: capitalize;
-  color: var(--main-brown-color);
-  font-weight: 600;
-  font-size: 2.5rem;
+  text-align: left;
 }
 
 .username {
@@ -74,6 +80,10 @@
 @media screen and (max-width: 540px) {
   .bodyContainer {
     grid-template-columns: 1fr;
+  }
+
+  .header {
+    grid-template-columns: 140px 1fr;
   }
 
   .soonWorkshifts {

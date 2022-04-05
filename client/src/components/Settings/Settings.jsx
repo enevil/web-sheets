@@ -59,7 +59,7 @@ const Settings = () => {
   }, [dispatch, password, userId]);
 
   return (
-    <div className={css.container}>
+    <div className="defaultContainer">
       {settingsMessages && <MessagePopup />}
       <ul>
         <li className={css.item}>
