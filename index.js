@@ -9,6 +9,7 @@ import userRouter from "./Routes/User/userRouter.js";
 import recipeRouter from "./Routes/Recipe/recipeRouter.js";
 import { request } from "gaxios";
 import process from "process";
+import path from "path";
 
 const PORT = process.env.PORT || 5000;
 const mongoURI = process.env.MONGO_URI;
@@ -53,8 +54,15 @@ const updateDb = new CronJob("0 * * * *", function () {
 updateDb.start();
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-  app.get("*", function (request, response) {
-    response.sendFile("client/build/index.html");
+  console.log(path.resolve(__dirname));
+  // app.use(express.static("client/build"));
+  app.use(express.static(path.resolve(__dirname, "../client", "build")));
+
+  app.get("*", (req, res) => {
+    // Serve index.html file if it doesn't recognize the route
+    res.sendFile(path.resolve(__dirname, "../client", "build", "index.html")); // <- Here !
   });
+  // app.get("*", function (request, response) {
+  //   response.sendFile("client/build/index.html");
+  // });
 }
