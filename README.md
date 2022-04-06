@@ -21,9 +21,10 @@ _[Ссылка](https://websheets-i.herokuapp.com/blog) на приложени�
 ![calendar-desktop](https://user-images.githubusercontent.com/91529586/162027480-cff4e631-62a5-48cf-a29a-f45c3d8074c8.png)
 ![statistic-desktop](https://user-images.githubusercontent.com/91529586/162027484-7b53d1ca-9e70-41f0-abd5-aa9320d6f059.png)
 ![recipes-desktop](https://user-images.githubusercontent.com/91529586/162027485-44e73502-47a0-4610-94ef-606cf77aa1c1.png)
-![calendar-smartphone](https://user-images.githubusercontent.com/91529586/162027866-4402e2dc-dc5c-46ff-9b4d-75dc9c1f9bba.png)
-![recipes-smartphone](https://user-images.githubusercontent.com/91529586/162027868-821ef072-6f1e-40ce-bc25-0432e16a1129.png)
-![statistic-smartphone](https://user-images.githubusercontent.com/91529586/162027870-7c25b076-59d9-4279-82b3-51a8da576b01.png)
+* * *
+![calendar-smartphone](https://user-images.githubusercontent.com/91529586/162030808-496ec85b-92bc-4e09-b8e0-d45044d09375.png)
+![recipes-smartphone](https://user-images.githubusercontent.com/91529586/162030811-ed81bd55-387f-4436-b871-f782c8231dca.png)
+![statistic-smartphone](https://user-images.githubusercontent.com/91529586/162030815-b6051b67-8ab4-4d0e-bd67-b7953c7515f2.png)
 
 ## Стак приложения 
 В первую очередь данный проект - это SPA. Так как React, весь его синтаксис и VDOM полностью подталкивают, к созданию такого рода приложения.
